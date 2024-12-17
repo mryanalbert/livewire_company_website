@@ -35,12 +35,15 @@ class MemberResource extends Resource
                     ->required()
                     ->placeholder('Enter Designation'),
                 TextInput::make('tw_url')
+                    ->url()
                     ->label('Twitter URL')
                     ->placeholder('Twitter URL'),
                 TextInput::make('fb_url')
+                    ->url()
                     ->label('Facebook URL')
                     ->placeholder('Facebook URL'),
                 TextInput::make('in_url')
+                    ->url()
                     ->label('Instagram URL')
                     ->placeholder('Instagram URL'),
                 Select::make('status')
@@ -48,7 +51,9 @@ class MemberResource extends Resource
                         1 => 'Active',
                         0 => 'Block',
                     ]),
-                FileUpload::make('image'),
+                FileUpload::make('image')
+                    ->image()
+                    ->imageEditor(),
             ]);
     }
 

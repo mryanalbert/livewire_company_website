@@ -42,13 +42,24 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav m-auto mb-2 mb-lg-0">
-                        <li class="nav-item"> <a class="nav-link" href="{{ route('home') }}" wire:navigate>Home</a></li>
-                        <li class="nav-item "> <a class="nav-link" href="about.html">About Us</a></li>
-                        <li class="nav-item "> <a class="nav-link" href="{{ route('servicesPage') }}"
-                                wire:navigate>Services</a></li>
-                        <li class="nav-item "> <a class="nav-link" href="team.html">Our Team</a></li>
-                        <li class="nav-item "><a class="nav-link " href="blog.html">Blog</a></li>
-                        <li class="nav-item "><a class="nav-link " href="faq.html">FAQ</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('home') }}" wire:navigate>Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('servicesPage') }}" wire:navigate>Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('teamPage') }}" wire:navigate>Our Team</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="blog.html">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="faq.html">FAQ</a>
+                        </li>
                     </ul>
                     <a href="#!" class="btn btn-outline-primary">Contact Us</a>
                 </div>
@@ -114,12 +125,12 @@
     </footer>
 
     <!-- # JS Plugins -->
-    <script src="{{ asset('front/plugins/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('front/plugins/bootstrap/bootstrap.min.js') }}"></script>
+    <script data-navigate-once src="{{ asset('front/plugins/jquery/jquery.min.js') }}"></script>
+    <script data-navigate-once src="{{ asset('front/plugins/bootstrap/bootstrap.min.js') }}"></script>
     {{-- <script src="{{ asset('front/plugins/slick/slick.min.js') }}"></script> --}}
 
     <!-- Main Script -->
-    <script src="{{ asset('front/js/script.js') }}"></script>
+    <script data-navigate-once src="{{ asset('front/js/script.js') }}"></script>
 
 </body>
 

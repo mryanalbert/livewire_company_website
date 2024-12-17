@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Filament\Resources\MemberResource\Pages;
+namespace App\Filament\Resources\CategoryResource\Pages;
 
-use App\Filament\Resources\MemberResource;
+use App\Filament\Resources\CategoryResource;
 use Filament\Actions;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\EditRecord;
 
-class EditMember extends EditRecord
+class EditCategory extends EditRecord
 {
-    protected static string $resource = MemberResource::class;
+    protected static string $resource = CategoryResource::class;
 
     protected function getHeaderActions(): array
     {
@@ -27,7 +27,7 @@ class EditMember extends EditRecord
     {
         return Notification::make()
             ->success()
-            ->title('Member updated')
-            ->body('Member updated successfully.');
+            ->title('Category updated')
+            ->body('Category updated successfully.');
     }
 }

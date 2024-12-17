@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Filament\Resources\MemberResource\Pages;
+namespace App\Filament\Resources\CategoryResource\Pages;
 
-use App\Filament\Resources\MemberResource;
+use App\Filament\Resources\CategoryResource;
 use Filament\Actions;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\CreateRecord;
 
-class CreateMember extends CreateRecord
+class CreateCategory extends CreateRecord
 {
-    protected static string $resource = MemberResource::class;
+    protected static string $resource = CategoryResource::class;
 
     protected function getRedirectUrl(): string
     {
@@ -20,7 +20,7 @@ class CreateMember extends CreateRecord
     {
         return Notification::make()
             ->success()
-            ->title('Member Created')
-            ->body('Member created successfully.');
+            ->title('Category Created')
+            ->body('Category created successfully.');
     }
 }
