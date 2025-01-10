@@ -143,8 +143,6 @@ return [
     'navigate' => [
         'show_progress_bar' => true,
         'progress_bar_color' => '#2299dd',
-        'cache' => true,
-        'cache_lifetime' => 60, // minutes
     ],
 
     /*

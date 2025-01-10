@@ -3,8 +3,10 @@
 namespace App\Livewire;
 
 use App\Models\Service;
+use Livewire\Attributes\Layout;
 use Livewire\Component;
 
+#[Layout('components.layouts.app')]
 class ShowServicePage extends Component
 {
     public function render()

@@ -16,6 +16,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Set;
+use Filament\Tables\Actions\BulkActionGroup;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Support\Str;
 
@@ -37,10 +40,11 @@ class CategoryResource extends Resource
                 TextInput::make('slug')
                     ->required()
                     ->placeholder('Slug'),
-                Select::make('status')->options([
-                    1 => 'Active',
-                    0 => 'Block',
-                ])
+                Select::make('status')
+                    ->options([
+                        1 => 'Active',
+                        0 => 'Block',
+                    ])
                     ->required(),
             ]);
     }
@@ -56,11 +60,11 @@ class CategoryResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                BulkActionGroup::make([
+                    DeleteBulkAction::make(),
                 ]),
             ]);
     }

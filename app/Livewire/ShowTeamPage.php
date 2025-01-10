@@ -3,8 +3,10 @@
 namespace App\Livewire;
 
 use App\Models\Member;
+use Livewire\Attributes\Layout;
 use Livewire\Component;
 
+#[Layout('components.layouts.app')]
 class ShowTeamPage extends Component
 {
     public function render()

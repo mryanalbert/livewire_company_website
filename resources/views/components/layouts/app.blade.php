@@ -32,7 +32,7 @@
     <header class="navigation bg-tertiary">
         <nav class="navbar navbar-expand-xl navbar-light text-center py-3">
             <div class="container">
-                <a wire:navigate class="navbar-brand" href="{{ route('home') }}">
+                <a wire:navigate.hover class="navbar-brand" href="{{ route('home') }}">
                     <img loading="prelaod" decoding="async" class="img-fluid" width="160"
                         src="{{ asset('front/images/logo.png') }}" alt="Wallet">
                 </a>
@@ -43,19 +43,19 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav m-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('home') }}" wire:navigate>Home</a>
+                            <a class="nav-link" wire:navigate href="{{ route('home') }}">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="about.html">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('servicesPage') }}" wire:navigate>Services</a>
+                            <a class="nav-link" wire:navigate href="{{ route('servicesPage') }}">Services</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('teamPage') }}" wire:navigate>Our Team</a>
+                            <a class="nav-link" wire:navigate href="{{ route('teamPage') }}">Our Team</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="blog.html">Blog</a>
+                            <a class="nav-link" wire:navigate href="{{ route('blog') }}">Blog</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link " href="faq.html">FAQ</a>
@@ -127,10 +127,10 @@
     <!-- # JS Plugins -->
     <script data-navigate-once src="{{ asset('front/plugins/jquery/jquery.min.js') }}"></script>
     <script data-navigate-once src="{{ asset('front/plugins/bootstrap/bootstrap.min.js') }}"></script>
-    {{-- <script src="{{ asset('front/plugins/slick/slick.min.js') }}"></script> --}}
+    <script data-navigate-once src="{{ asset('front/plugins/slick/slick.min.js') }}"></script>
 
     <!-- Main Script -->
-    <script data-navigate-once src="{{ asset('front/js/script.js') }}"></script>
+    <script data-navigate-once src="{{ asset('front/js/script.js') }}"></script>>
 
 </body>
 
