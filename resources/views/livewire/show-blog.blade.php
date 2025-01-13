@@ -90,7 +90,8 @@
                                                     {{ \Carbon\Carbon::parse($article->created_at)->format('M d, Y') }}
                                                 </p>
                                                 <h2 class="h4">
-                                                    <a class="text-black" href="blog-details.html">
+                                                    <a class="text-black"
+                                                        href="{{ route('blogDetail', $article->id) }}">
                                                         {{ $article->title }}
                                                     </a>
                                                 </h2>
@@ -174,8 +175,8 @@
                                         </a>
                                         <div class="flex-grow-1">
                                             <h5 class="h6 mb-0">
-                                                <a class="text-black"
-                                                    href="blog-details.html">{{ $latestArticle->title }}.
+                                                <a class="text-black" wire:navigate
+                                                    href="{{ route('blogDetail', $latestArticle->id) }}">{{ $latestArticle->title }}.
                                                 </a>
                                             </h5>
                                             <small>{{ \Carbon\Carbon::parse($latestArticle->created_at)->format('M d, Y') }}</small>
