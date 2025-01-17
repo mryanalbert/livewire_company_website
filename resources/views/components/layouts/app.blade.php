@@ -46,7 +46,7 @@
                             <a class="nav-link" wire:navigate href="{{ route('home') }}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="about.html">About Us</a>
+                            <a class="nav-link" wire:navigate href="{{ route('page', 1) }}">About Us</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" wire:navigate href="{{ route('servicesPage') }}">Services</a>
@@ -58,10 +58,10 @@
                             <a class="nav-link" wire:navigate href="{{ route('blog') }}">Blog</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="faq.html">FAQ</a>
+                            <a class="nav-link" wire:navigate href="{{ route('faqs') }}">FAQ</a>
                         </li>
                     </ul>
-                    <a href="#!" class="btn btn-outline-primary">Contact Us</a>
+                    <a wire:navigate href="{{ route('contact') }}" class="btn btn-outline-primary">Contact Us</a>
                 </div>
             </div>
         </nav>
@@ -94,13 +94,17 @@
                     <div class="footer-widget">
                         <h5 class="mb-4 text-primary font-secondary">Quick Links</h5>
                         <ul class="list-unstyled">
-                            <li class="mb-2"><a href="#!">About Us</a>
+                            <li class="mb-2">
+                                <a href="{{ route('page', 1) }}" wire:navigate>About Us</a>
                             </li>
-                            <li class="mb-2"><a href="#!">Contact Us</a>
+                            <li class="mb-2">
+                                <a href="#!">Contact Us</a>
                             </li>
-                            <li class="mb-2"><a href="#!">Blog</a>
+                            <li class="mb-2">
+                                <a wire:navigate href="{{ route('blog') }}">Blog</a>
                             </li>
-                            <li class="mb-2"><a href="#!">Team</a>
+                            <li class="mb-2">
+                                <a wire:navigate href="{{ route('teamPage') }}">Team</a>
                             </li>
                         </ul>
                     </div>
@@ -109,12 +113,13 @@
                     <div class="footer-widget">
                         <h5 class="mb-4 text-primary font-secondary">Other Links</h5>
                         <ul class="list-unstyled">
-                            <li class="list-inline-item me-4"><a class="text-black"
-                                    href="privacy-policy.html">Privacy
-                                    Policy</a>
+                            <li class="list-inline-item me-4">
+                                <a class="text-black" wire:navigate href="{{ route('page', 2) }}">Privacy Policy</a>
                             </li>
-                            <li class="list-inline-item me-4"><a class="text-black" href="terms.html">Terms &amp;
-                                    Conditions</a>
+                            <li class="list-inline-item me-4">
+                                <a class="text-black" wire:navigate href="{{ route('page', 3) }}">
+                                    Terms &amp; Conditions
+                                </a>
                             </li>
                         </ul>
                     </div>

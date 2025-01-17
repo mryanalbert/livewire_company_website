@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 09, 2025 at 09:48 AM
+-- Generation Time: Jan 17, 2025 at 09:41 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -45,7 +45,9 @@ CREATE TABLE `articles` (
 
 INSERT INTO `articles` (`id`, `title`, `category_id`, `author`, `image`, `content`, `status`, `created_at`, `updated_at`) VALUES
 (1, 'Commodo nulla quia d', 5, 'Ea harum sed sit do', '01JH4SAPACJG504VA3ZBABMJT2.png', '<p>Animi, qui vero aut .</p>', 1, '2025-01-08 21:41:52', '2025-01-08 22:06:53'),
-(2, 'Quia est consequatur', 4, 'Laudantium facilis ', '01JH4TSYE6Q5C68PY9VR5NSBCE.jpg', '<p>Soluta eius non sed .</p>', 0, '2025-01-08 22:07:40', '2025-01-08 22:07:40');
+(2, 'Quia est consequatur', 4, 'Laudantium facilis ', '01JH4TSYE6Q5C68PY9VR5NSBCE.jpg', '<p>Soluta eius non sed .</p>', 1, '2025-01-08 22:07:40', '2025-01-09 19:53:50'),
+(3, 'Esse qui et repelle', 5, 'Qui cillum do dicta ', '01JH73CJ38RDBNY7E1YJGPWTED.jpg', '<p>Rerum ut suscipit co.</p>', 1, '2025-01-09 17:14:09', '2025-01-09 19:54:02'),
+(4, 'Adipisicing elit qu', 5, 'Unde reprehenderit v', '01JH7211KSX6W30XPXXD8R34G8.jpg', '<p>Expedita anim volupt.</p>', 1, '2025-01-09 18:52:22', '2025-01-09 18:52:22');
 
 -- --------------------------------------------------------
 
@@ -64,10 +66,10 @@ CREATE TABLE `cache` (
 --
 
 INSERT INTO `cache` (`key`, `value`, `expiration`) VALUES
-('356a192b7913b04c54574d18c28d46e6395428ab', 'i:1;', 1736402914),
-('356a192b7913b04c54574d18c28d46e6395428ab:timer', 'i:1736402914;', 1736402914),
-('a17961fa74e9275d529f489537f179c05d50c2f3', 'i:2;', 1736392611),
-('a17961fa74e9275d529f489537f179c05d50c2f3:timer', 'i:1736392611;', 1736392611);
+('356a192b7913b04c54574d18c28d46e6395428ab', 'i:1;', 1736747781),
+('356a192b7913b04c54574d18c28d46e6395428ab:timer', 'i:1736747781;', 1736747781),
+('a17961fa74e9275d529f489537f179c05d50c2f3', 'i:1;', 1736729708),
+('a17961fa74e9275d529f489537f179c05d50c2f3:timer', 'i:1736729708;', 1736729708);
 
 -- --------------------------------------------------------
 
@@ -102,7 +104,8 @@ CREATE TABLE `categories` (
 
 INSERT INTO `categories` (`id`, `name`, `slug`, `status`, `created_at`, `updated_at`) VALUES
 (4, 'World Bal', 'world-bal', 1, '2024-12-16 23:17:01', '2024-12-16 23:20:25'),
-(5, 'Spi ker', 'spi-ker', 1, '2024-12-16 23:21:04', '2024-12-16 23:21:04');
+(5, 'Spi ker', 'spi-ker', 1, '2024-12-16 23:21:04', '2024-12-16 23:21:04'),
+(6, 'fashion', 'fashion', 1, '2025-01-09 17:26:52', '2025-01-09 17:26:52');
 
 -- --------------------------------------------------------
 
@@ -119,6 +122,30 @@ CREATE TABLE `failed_jobs` (
   `exception` longtext NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `faqs`
+--
+
+CREATE TABLE `faqs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `question` varchar(255) NOT NULL,
+  `answer` text NOT NULL,
+  `status` int(11) NOT NULL DEFAULT 1,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `faqs`
+--
+
+INSERT INTO `faqs` (`id`, `question`, `answer`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Eu ab voluptatem Ex', '<p>Sit tenetur eum magn.</p>', 1, '2025-01-12 17:01:39', '2025-01-12 17:42:51'),
+(2, 'Exercitationem eum n', '<p>Aut in sit, est exer.</p>', 1, '2025-01-12 17:05:35', '2025-01-12 17:05:35'),
+(3, 'Accusamus rerum minu', '<h2>Dummy Heading</h2><p>Quos quos mollit ex .</p>', 1, '2025-01-12 18:32:20', '2025-01-12 18:32:20');
 
 -- --------------------------------------------------------
 
@@ -207,7 +234,34 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (4, '2024_12_16_033014_create_services_table', 2),
 (5, '2024_12_16_074056_create_members_table', 3),
 (6, '2024_12_17_053447_create_categories_table', 4),
-(7, '2025_01_09_051041_create_articles_table', 5);
+(7, '2025_01_09_051041_create_articles_table', 5),
+(8, '2025_01_13_005014_create_faqs_table', 6),
+(9, '2025_01_13_024141_create_pages_table', 7);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pages`
+--
+
+CREATE TABLE `pages` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `content` longtext NOT NULL,
+  `status` int(11) NOT NULL DEFAULT 1,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `pages`
+--
+
+INSERT INTO `pages` (`id`, `title`, `image`, `content`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'About', '01JHF3PG40H74BAV57P54TGVZP.jpg', '<h2>Lorum ipsum doller</h2><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>', 1, '2025-01-12 18:58:49', '2025-01-12 21:55:29'),
+(2, 'Privacy Policy', NULL, '<h2>Lorum ipsum doller</h2><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p><br></p>', 1, '2025-01-12 22:22:14', '2025-01-12 22:23:31'),
+(3, 'Terms & Conditions', NULL, '<h2>Lorum ipsum doller</h2><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p><br></p>', 1, '2025-01-12 22:22:35', '2025-01-12 22:23:39');
 
 -- --------------------------------------------------------
 
@@ -269,8 +323,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('1ZO96tEC1dyn7RjUhta5vhqxI3F8aEmcTPJtWPaH', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiNUNLZ0h3THE0YVdGMm94Z1g3THZnT1FETVpvR0t1aFBWTE5OUlBZUyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9zZXJ2aWNlLzYiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1736411293),
-('ZvKyUtVU7TSWEC6Y9NbHb1MPLQQkt0IPtr0wPhHl', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'YTo3OntzOjY6Il90b2tlbiI7czo0MDoiTGl1cWFNWXNySUtVTU8xZ3V3cFhjU1hNT3oxTTl1Q3kxMzJmcENZOCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzY6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbi9hcnRpY2xlcyI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6MzoidXJsIjthOjA6e31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTIkV2FDazlpMjF4MnlqNG4zakZNQ0JNLlgwMERiZzNObVhQQU5NU0hKYjVDOHF2MExwYW9Eb1MiO3M6ODoiZmlsYW1lbnQiO2E6MDp7fX0=', 1736402972);
+('mxoHjJjIEQLS0bDkQZ36PErSTK2zcDMQMJqIM9fh', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'YTo3OntzOjY6Il90b2tlbiI7czo0MDoiSTdhV2huVEMzd2U3Z3FwRkRlVlhGSGZ0Q0JMdVlUTUx6dzFwR05NVCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjk6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9jb250YWN0Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czozOiJ1cmwiO2E6MDp7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoxNzoicGFzc3dvcmRfaGFzaF93ZWIiO3M6NjA6IiQyeSQxMiRXYUNrOWkyMXgyeWo0bjNqRk1DQk0uWDAwRGJnM05tWFBBTk1TSEpiNUM4cXYwTHBhb0RvUyI7czo4OiJmaWxhbWVudCI7YTowOnt9fQ==', 1736758509);
 
 -- --------------------------------------------------------
 
@@ -333,6 +386,12 @@ ALTER TABLE `failed_jobs`
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
+-- Indexes for table `faqs`
+--
+ALTER TABLE `faqs`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `jobs`
 --
 ALTER TABLE `jobs`
@@ -355,6 +414,12 @@ ALTER TABLE `members`
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pages`
+--
+ALTER TABLE `pages`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -392,19 +457,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `faqs`
+--
+ALTER TABLE `faqs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `jobs`
@@ -422,7 +493,13 @@ ALTER TABLE `members`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `pages`
+--
+ALTER TABLE `pages`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `services`
